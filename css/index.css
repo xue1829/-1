@@ -1,0 +1,580 @@
+/*
+* @Author: zhengwei
+* @Date:   2016-07-11 14:44:27
+* @Last Modified by:   zhengwei
+* @Last Modified time: 2016-07-13 17:38:25
+*/
+
+
+/**
+ * 1.尽可能的多使用直接子代选择器 避免误杀别的标签 也可以提示CSS的查找性能
+ * 2.尽可能的多使用ID去限定选择器 选择器更精确一些
+ */
+
+body {
+    font-family: 'Microsoft YaHei';
+}
+
+
+/* 定义一个自己web字体 */
+
+@font-face {
+    /* 我们将要定义的字体的名字 */
+    font-family: 'itcast';
+    /* 我们这个字体对应的字体文件 format是声明这个字体文件的格式  */
+    src: url(../fonts/MiFie-Web-Font.ttf) format("truetype"), url(../fonts/MiFie-Web-Font.svg) format("svg"), url(../fonts/MiFie-Web-Font.woff) format("woff");
+}
+
+
+/* 一定要记得使用字体图标首先得使用这个字体
+然后记得在伪元素里面加上这个图标对应的编码 */
+
+[class^="icon-"],
+[class*=" icon-"] {
+    font-family: 'itcast';
+    font-style: normal;
+}
+
+.icon-mobilephone::before {
+    content: "\e908";
+}
+
+.icon-telephone::before {
+    content: "\e909";
+}
+
+.icon-icon::before {
+    content: "\e920";
+    font-size: 50px;
+    color: #e92322;
+    line-height: 50px;
+    vertical-align: middle;
+}
+
+.icon-logo::before {
+    content: "\e93e";
+    font-size: 28px;
+    line-height: 50px;
+    color: #333;
+    vertical-align: middle;
+}
+
+
+/* 头部区域 */
+
+#header {}
+
+#header > .topbar {
+    border-bottom: 1px solid #c0c0c0;
+}
+
+#header > .topbar > .container {}
+
+#header > .topbar > .container > .row {
+    height: 40px;
+    line-height: 40px;
+    font-size: 12px;
+}
+
+#header > .topbar > .container > .row > div {
+    height: 40px;
+    border-left: 1px solid #c0c0c0;
+}
+
+#header > .topbar > .container > .row > div:first-child {
+    border-left: 0px;
+}
+
+#header > .topbar > .container > .row > div > a {
+    color: #666;
+}
+
+#header > .topbar > .container > .row > div > .mobile-link > img {
+    display: none;
+    position: absolute;
+    left: 50%;
+    margin-left: -60px;
+    top: 27px;
+    z-index: 2;
+}
+
+#header > .topbar > .container > .row > div > .mobile-link:hover > img {
+    display: block;
+}
+
+
+/* 轮播图区域 */
+
+#slide > .carousel > .carousel-inner > .item {
+    background-position: center center;
+}
+
+#slide > .carousel > .carousel-inner > .item > img {
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    #slide > .carousel > .carousel-inner > .item {
+        height: 410px;
+    }
+}
+
+
+/* 特色介绍板块 */
+
+.icon-uniE907:before {
+    content: "\e907";
+    font-size: 30px;
+}
+
+#feature {
+    padding: 40px 0px;
+    border-bottom: 1px solid #c0c0c0;
+}
+
+#feature .media {
+    margin-top: 20px;
+}
+
+#feature .media > a {
+    color: #666;
+    text-decoration: none;
+}
+
+#feature .media > a:hover {
+    color: #e92322;
+}
+
+
+/* 立即预约 */
+
+.icon-uniE906:before {
+    content: "\e906";
+}
+
+.icon-uniE905:before {
+    content: "\e905";
+}
+
+#booking {
+    padding: 20px 0px;
+    border-bottom: 1px solid #c0c0c0;
+}
+
+#booking >.container > p {
+    margin-bottom: 0;
+}
+
+#booking >.container > p > span {
+    color: #e92322;
+}
+
+#booking >.container > .pull-left > a {
+    color: #e92322;
+    text-decoration: none;
+    border-bottom: 1px dashed #e92322;
+}
+
+
+/* 产品推荐 */
+
+#products {
+    padding: 40px 0px;
+    background-color: #f0f0f0;
+}
+ #products > .container > .ul-waper{}
+@media (max-width: 768px) {
+    #products > .container > .ul-waper {
+        overflow-x: scroll;
+    }
+}
+
+#products > .container > .ul-waper > .nav-tabs {
+    width: 100%;
+}
+
+#products > .container > .ul-waper > .nav-tabs >li.active > a {
+    background-color: transparent;
+    border: 0;
+    border-bottom: 3px solid #e92322;
+}
+
+#products > .container > .ul-waper > .nav-tabs >li > a {
+    border: 0;
+    color: #555;
+    font-size: 16px;
+}
+
+#products > .container > .ul-waper > .nav-tabs >li > a:hover {
+    background: transparent;
+}
+
+#products > .container > .tab-content {
+    padding: 20px 0px;
+}
+
+
+/* 面板区域 */
+
+.panel-default.red {}
+
+.panel-default.red > .panel-heading {
+    background-color: #e92322;
+    color: #fff;
+}
+
+.panel-default.red > .panel-body {
+    background-color: #e92322;
+    color: #fff;
+}
+
+.panel-default.red::before {
+    font-family: "itcast";
+    content: "\e915";
+    position: absolute;
+    font-size: 40px;
+    color: #fff;
+    top: -9px;
+}
+
+.panel-default > .panel-heading {
+    float: right;
+    width: 120px;
+    height: 160px;
+    border-left: 1px dashed #c0c0c0;
+    border-bottom: 0;
+    position: relative;
+    background-color: #fff;
+    padding: 45px 0px;
+}
+
+.panel-default > .panel-heading > .tooltips {
+    width: 100%;
+    top: 20px;
+    position: absolute;
+    text-align: center;
+    font-size: 0;
+}
+
+.panel-default > .panel-heading > .tooltips > a:first-of-type {
+    border: 1px solid #e92322;
+    color: #e92322;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    font-size: 13px;
+}
+
+.panel-default > .panel-heading > .tooltips > a:last-of-type {
+    border: 1px solid #0f0;
+    color: #0f0;
+    width: 20px;
+    height: 20px;
+    margin-left: 5px;
+    text-align: center;
+    font-size: 13px;
+}
+
+.panel-default > .panel-heading > h3 > strong {
+    font-size: 30px;
+}
+
+.panel-default > .panel-heading::before,
+.panel-default > .panel-heading::after {
+    content: "";
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    position: absolute;
+    left: -8px;
+    background-color: #f0f0f0;
+}
+
+.panel-default > .panel-heading::before {
+    bottom: -8px;
+}
+
+.panel-default > .panel-heading::after {
+    top: -8px;
+}
+
+.panel-default > .panel-body {
+    margin-right: 120px;
+    height: 160px;
+}
+
+.panel-default > .panel-body > .row > div {
+    margin-top: 10px;
+}
+
+.panel-default > .panel-body > .row > div > p {
+    margin-bottom: 0;
+}
+
+
+/* 新闻版块 */
+
+.icon-news01:before {
+    content: "\e90e";
+    font-size: 28px;
+    color: #eaeaea;
+}
+
+.icon-news02:before {
+    content: "\e90f";
+    font-size: 28px;
+    color: #eaeaea;
+}
+
+.icon-news03:before {
+    content: "\e910";
+    font-size: 28px;
+    color: #eaeaea;
+}
+
+.icon-news04:before {
+    content: "\e911";
+    font-size: 28px;
+    color: #eaeaea;
+}
+
+#news {
+    padding: 40px 0;
+}
+
+#news .news-title {
+    padding: 20px 0;
+    border-bottom: 1px dashed #c0c0c0;
+}
+
+#news .news-title::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    border: 1px solid #c0c0c0;
+    bottom: 5px;
+    right: 5px;
+}
+
+#news .nav-tabs {
+    border-bottom: 0;
+}
+
+#news .nav-tabs > li > a {
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    margin-top: 10px;
+}
+
+#news .nav-tabs > li.active > a {
+    background-color: #e92322;
+}
+
+#news .tab-content > .tab-pane > ul > li {
+    font-size: 14px;
+    list-style: none;
+    padding: 10px 0;
+}
+
+.icon-uniE931::before {
+    content: "\e931";
+}
+
+.icon-uniE931::before {
+    content: "\e931";
+}
+
+.icon-uniE932::before {
+    content: "\e932";
+}
+
+.icon-uniE933::before {
+    content: "\e933";
+}
+
+.icon-uniE934::before {
+    content: "\e934";
+}
+
+.icon-uniE936::before {
+    content: "\e936";
+}
+
+.icon-uniE935::before {
+    content: "\e935";
+}
+
+.icon-uniE937::before {
+    content: "\e937";
+}
+
+
+/* 合作伙伴 */
+
+#partner {
+    padding: 20px 0;
+}
+
+#partner > .container > ul {
+    font-size: 0;
+}
+
+#partner > .container > ul > li {
+    list-style: none;
+    display: inline-block;
+    width: calc(100%/9);
+    text-align: center;
+    border-left: 1px dashed #c0c0c0;
+    height: 60px;
+}
+
+#partner > .container > ul > li:first-child {
+    border-left: 0;
+}
+
+#partner > .container > ul > li > a {
+    text-decoration: none;
+    color: #666;
+}
+
+#partner > .container > ul > li > a:hover {
+    color: #e92322;
+}
+
+#partner > .container > ul > li > a > i {
+    font-size: 50px;
+}
+
+
+/* Bootstrap扩展样式 */
+
+
+/* 自定义导航条 */
+
+.navbar-itcast {
+    border-color: #e7e7e7;
+    line-height: 80px;
+    margin-bottom: 0;
+    border: 0;
+    top: 0;
+    background-color: #fff;
+    width: 100%;
+    z-index: 1;
+}
+
+.navbar-itcast .navbar-brand {
+    color: #777;
+    height: 80px;
+}
+
+.navbar-itcast .navbar-brand:hover,
+.navbar-itcast .navbar-brand:focus {
+    color: #5e5e5e;
+    background-color: transparent;
+}
+
+.navbar-itcast .navbar-text {
+    color: #777;
+}
+
+.navbar-itcast .navbar-nav > li > a {
+    color: #777;
+    line-height: 48px;
+    border-bottom: 2px solid transparent;
+}
+
+.navbar-itcast .navbar-nav > li > a:hover,
+.navbar-itcast .navbar-nav > li > a:focus {
+    color: #333;
+    background-color: transparent;
+    border-bottom: 2px solid #e92322;
+}
+
+.navbar-itcast .navbar-nav > .active > a,
+.navbar-itcast .navbar-nav > .active > a:hover,
+.navbar-itcast .navbar-nav > .active > a:focus {
+    color: #555;
+}
+
+.navbar-itcast .navbar-nav > .disabled > a,
+.navbar-itcast .navbar-nav > .disabled > a:hover,
+.navbar-itcast .navbar-nav > .disabled > a:focus {
+    color: #ccc;
+    background-color: transparent;
+}
+
+.navbar-itcast .navbar-toggle {
+    border-color: #ddd;
+    margin-top: 24px;
+}
+
+.navbar-itcast .navbar-toggle:hover,
+.navbar-itcast .navbar-toggle:focus {
+    background-color: #ddd;
+}
+
+.navbar-itcast .navbar-toggle .icon-bar {
+    background-color: #888;
+}
+
+.navbar-itcast .navbar-collapse,
+.navbar-itcast .navbar-form {
+    border-color: #e7e7e7;
+}
+
+.navbar-itcast .navbar-nav > .open > a,
+.navbar-itcast .navbar-nav > .open > a:hover,
+.navbar-itcast .navbar-nav > .open > a:focus {
+    color: #555;
+    background-color: #e7e7e7;
+}
+
+@media (max-width: 767px) {
+    .navbar-itcast .navbar-nav .open .dropdown-menu > li > a {
+        color: #777;
+    }
+    .navbar-itcast .navbar-nav .open .dropdown-menu > li > a:hover,
+    .navbar-itcast .navbar-nav .open .dropdown-menu > li > a:focus {
+        color: #333;
+        background-color: transparent;
+    }
+    .navbar-itcast .navbar-nav .open .dropdown-menu > .active > a,
+    .navbar-itcast .navbar-nav .open .dropdown-menu > .active > a:hover,
+    .navbar-itcast .navbar-nav .open .dropdown-menu > .active > a:focus {
+        color: #555;
+        background-color: #e7e7e7;
+    }
+    .navbar-itcast .navbar-nav .open .dropdown-menu > .disabled > a,
+    .navbar-itcast .navbar-nav .open .dropdown-menu > .disabled > a:hover,
+    .navbar-itcast .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+        color: #ccc;
+        background-color: transparent;
+    }
+}
+
+.navbar-itcast .navbar-link {
+    color: #777;
+}
+
+.navbar-itcast .navbar-link:hover {
+    color: #333;
+}
+
+.navbar-itcast .btn-link {
+    color: #777;
+}
+
+.navbar-itcast .btn-link:hover,
+.navbar-itcast .btn-link:focus {
+    color: #333;
+}
+
+.navbar-itcast .btn-link[disabled]:hover,
+fieldset[disabled] .navbar-itcast .btn-link:hover,
+.navbar-itcast .btn-link[disabled]:focus,
+fieldset[disabled] .navbar-itcast .btn-link:focus {
+    color: #ccc;
+}

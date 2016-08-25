@@ -1,0 +1,228 @@
+/*
+* @Author: zhengwei
+* @Date:   2016-07-11 14:44:27
+* @Last Modified by:   zhengwei
+* @Last Modified time: 2016-07-11 18:58:18
+*/
+
+
+/**
+ * 1.尽可能的多使用直接子代选择器 避免误杀别的标签 也可以提示CSS的查找性能
+ * 2.尽可能的多使用ID去限定选择器 选择器更精确一些
+ */
+
+body {
+    font-family: 'Microsoft YaHei';
+}
+
+
+/* 定义一个自己web字体 */
+
+@font-face {
+    /* 我们将要定义的字体的名字 */
+    font-family: 'itcast';
+    /* 我们这个字体对应的字体文件 format是声明这个字体文件的格式  */
+    src: url(../fonts/MiFie-Web-Font.ttf) format("truetype"), url(../fonts/MiFie-Web-Font.svg) format("svg"), url(../fonts/MiFie-Web-Font.woff) format("woff");
+}
+
+
+/* 一定要记得使用字体图标首先得使用这个字体
+然后记得在伪元素里面加上这个图标对应的编码 */
+
+[class^="icon-"],
+[class*=" icon-"] {
+    font-family: 'itcast';
+    font-style: normal;
+}
+
+.icon-mobilephone::before {
+    content: "\e908";
+}
+
+.icon-telephone::before {
+    content: "\e909";
+}
+
+.icon-icon::before {
+    content: "\e920";
+    font-size: 50px;
+    color: #e92322;
+    line-height: 50px;
+    vertical-align: middle;
+}
+
+.icon-logo::before {
+    content: "\e93e";
+    font-size: 28px;
+    line-height: 50px;
+    color: #333;
+    vertical-align: middle;
+}
+
+
+/* 头部区域 */
+
+#header {}
+
+#header > .topbar {
+    border-bottom: 1px solid #c0c0c0;
+}
+
+#header > .topbar > .container {}
+
+#header > .topbar > .container > .row {
+    height: 40px;
+    line-height: 40px;
+    font-size: 12px;
+}
+
+#header > .topbar > .container > .row > div {
+    height: 40px;
+    border-left: 1px solid #c0c0c0;
+}
+
+#header > .topbar > .container > .row > div:first-child {
+    border-left: 0px;
+}
+
+#header > .topbar > .container > .row > div > a {
+    color: #666;
+}
+
+#header > .topbar > .container > .row > div > .mobile-link > img {
+    display: none;
+    position: absolute;
+    left: 50%;
+    margin-left: -60px;
+    top: 27px;
+    z-index: 1;
+}
+
+#header > .topbar > .container > .row > div > .mobile-link:hover > img {
+    display: block;
+}
+
+
+/* Bootstrap扩展样式 */
+
+
+/* 自定义导航条 */
+
+.navbar-itcast {
+    border-color: #e7e7e7;
+    line-height: 80px;
+    margin-bottom: 0;
+    border: 0;
+}
+
+.navbar-itcast .navbar-brand {
+    color: #777;
+}
+
+.navbar-itcast .navbar-brand:hover,
+.navbar-itcast .navbar-brand:focus {
+    color: #5e5e5e;
+    background-color: transparent;
+}
+
+.navbar-itcast .navbar-text {
+    color: #777;
+}
+
+.navbar-itcast .navbar-nav > li > a {
+    color: #777;
+    line-height: 48px;
+    border-bottom: 2px solid transparent;
+}
+
+.navbar-itcast .navbar-nav > li > a:hover,
+.navbar-itcast .navbar-nav > li > a:focus {
+    color: #333;
+    background-color: transparent;
+    border-bottom: 2px solid #e92322;
+}
+
+.navbar-itcast .navbar-nav > .active > a,
+.navbar-itcast .navbar-nav > .active > a:hover,
+.navbar-itcast .navbar-nav > .active > a:focus {
+    color: #555;
+}
+
+.navbar-itcast .navbar-nav > .disabled > a,
+.navbar-itcast .navbar-nav > .disabled > a:hover,
+.navbar-itcast .navbar-nav > .disabled > a:focus {
+    color: #ccc;
+    background-color: transparent;
+}
+
+.navbar-itcast .navbar-toggle {
+    border-color: #ddd;
+}
+
+.navbar-itcast .navbar-toggle:hover,
+.navbar-itcast .navbar-toggle:focus {
+    background-color: #ddd;
+}
+
+.navbar-itcast .navbar-toggle .icon-bar {
+    background-color: #888;
+}
+
+.navbar-itcast .navbar-collapse,
+.navbar-itcast .navbar-form {
+    border-color: #e7e7e7;
+}
+
+.navbar-itcast .navbar-nav > .open > a,
+.navbar-itcast .navbar-nav > .open > a:hover,
+.navbar-itcast .navbar-nav > .open > a:focus {
+    color: #555;
+    background-color: #e7e7e7;
+}
+
+@media (max-width: 767px) {
+    .navbar-itcast .navbar-nav .open .dropdown-menu > li > a {
+        color: #777;
+    }
+    .navbar-itcast .navbar-nav .open .dropdown-menu > li > a:hover,
+    .navbar-itcast .navbar-nav .open .dropdown-menu > li > a:focus {
+        color: #333;
+        background-color: transparent;
+    }
+    .navbar-itcast .navbar-nav .open .dropdown-menu > .active > a,
+    .navbar-itcast .navbar-nav .open .dropdown-menu > .active > a:hover,
+    .navbar-itcast .navbar-nav .open .dropdown-menu > .active > a:focus {
+        color: #555;
+        background-color: #e7e7e7;
+    }
+    .navbar-itcast .navbar-nav .open .dropdown-menu > .disabled > a,
+    .navbar-itcast .navbar-nav .open .dropdown-menu > .disabled > a:hover,
+    .navbar-itcast .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+        color: #ccc;
+        background-color: transparent;
+    }
+}
+
+.navbar-itcast .navbar-link {
+    color: #777;
+}
+
+.navbar-itcast .navbar-link:hover {
+    color: #333;
+}
+
+.navbar-itcast .btn-link {
+    color: #777;
+}
+
+.navbar-itcast .btn-link:hover,
+.navbar-itcast .btn-link:focus {
+    color: #333;
+}
+
+.navbar-itcast .btn-link[disabled]:hover,
+fieldset[disabled] .navbar-itcast .btn-link:hover,
+.navbar-itcast .btn-link[disabled]:focus,
+fieldset[disabled] .navbar-itcast .btn-link:focus {
+    color: #ccc;
+}

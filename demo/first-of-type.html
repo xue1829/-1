@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    /* 只从这种元素里面去找第一个 */
+    div:nth-of-type(2) {
+        color: #f40;
+    }
+    /* 第一个这种类型的元素 */
+    div:first-of-type{
+		color:#0f0;
+    }
+    /* 如果第一个不是div就选不中 */
+    div:first-child{
+
+    }
+    </style>
+</head>
+
+<body>   
+    <p>fsd</p>
+    <div>1
+    </div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <p>11</p>
+</body>
+
+</html>

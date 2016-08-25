@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.css">
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    div {
+        height: 400px;
+        background-color: #f40;
+        margin: 0 auto;
+    }
+    /* 用最小宽度进行判断的时候要从小到大 
+    如果用最大宽度判断要从大到小写*/
+    
+    @media (min-width: 1200px) {
+        .container {
+            width: 1170px;
+        }
+    }
+    
+    @media (min-width: 992px) {
+        .container {
+            width: 970px;
+        }
+    }
+    
+    @media (min-width: 768px) {
+        .container {
+            width: 750px;
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        ...
+    </div>
+    <div class="container-fluid"></div>
+</body>
+
+</html>
